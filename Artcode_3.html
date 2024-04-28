@@ -3,19 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artcode_3</title>
+    <title>Quiz on School Facilities</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        .result-container {
+            margin-top: 20px;
+            display: none;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Clue 3:</h1>
-    </header>
-    <section>
-<!--        <h2>Section Title</h2>-->
-        <p>Please go to ...</p>
-    </section>
-    <footer>
-        <p>time limit:</p>
-    </footer>
+    <div class="quiz-container">
+        <h1>Quick Knowledge Quiz Challenge!</h1>
+        <p>What's a major perk of having gender-neutral toilets in schools?</p>
+        <form id="quizForm">
+            <label>
+                <input type="radio" name="benefit" value="Reduce Bullying">
+                Zaps school bullying and creates a more inclusive atmosphere!
+            </label><br>
+            <label>
+                <input type="radio" name="benefit" value="Financial Cost">
+                They're super cheap to maintain—save those pennies!
+            </label><br>
+            <label>
+                <input type="radio" name="benefit" value="Space">
+                Saves loads of space—more room for fun activities!
+            </label><br>
+            <label>
+                <input type="radio" name="benefit" value="Compliance">
+                Makes it a breeze to meet building codes!
+            </label><br>
+            <button type="button" onclick="checkAnswer()">Submit Answer</button>
+        </form>
+        <div class="result-container" id="resultContainer">
+            <p id="resultText"></p>
+            <p id="nextStep"></p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            var radios = document.getElementsByName('benefit');
+            var chosen = '';
+            for (var i = 0, length = radios.length; i < length; i++) {
+                if (radios[i].checked) {
+                    chosen = radios[i].value;
+                    break;
+                }
+            }
+
+            if (chosen === 'Reduce Bullying') {
+                document.getElementById('resultText').innerHTML = "You're spot on! Gender-neutral toilets help make schools safer and more welcoming for everyone.";
+                document.getElementById('nextStep').innerHTML = "Now, let's keep the adventure going! Rumor has it that there's a book titled 'The Secrets of Neutrality' hidden in the designated bookshelf, packed with intriguing secrets!";
+            } else {
+                document.getElementById('resultText').innerHTML = "Oops, swing and a miss! While those points are interesting, the real win is in kicking bullying to the curb and boosting inclusivity.";
+                document.getElementById('nextStep').innerHTML = "Try again!";
+            }
+
+            document.getElementById('resultContainer').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
-
