@@ -1,2 +1,3 @@
-# kwsrepository.github.io
-for my mixed reality coursework
+# my mixed reality coursework - locative media - Artcode - game design
+## presentation video (include demo test)
+https://youtu.be/IaqIuVWurEQ
